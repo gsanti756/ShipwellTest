@@ -1,0 +1,44 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "impliedStrict": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "no-debugger": 0,
+    "no-console": 0,
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always",
+        "bracketSpacing": true,
+        "htmlWhitespaceSensitivity": "css",
+        "jsxBracketSameLine": true,
+        "jsxSingleQuote": true,
+        "parser": "babel",
+        "printWidth": 90,
+        "semi": false,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "useTabs": false
+      }
+    ]
+  }
+}
