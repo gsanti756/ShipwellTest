@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { buttonEdit, buttonDelete, button } from './styles'
+import Button from 'components/_lib/Button'
 
 const Row = ({ item, index, setCompleted, setEditItem, deleteItem }) => {
   return (
@@ -16,18 +16,19 @@ const Row = ({ item, index, setCompleted, setEditItem, deleteItem }) => {
         />
       </td>
       <td>
-          <button
-        onClick={() => deleteItem(index)}
-        type='submit'
-        css={[button, buttonDelete]}>
-          Delete
-      </button>
-        <button
-          onClick={() => setEditItem(item, index)}
-          type='submit'
-          css={[button, buttonEdit]}>
-          Edit
-        </button>
+        <Button
+          title='Delete'
+          handlerOnClick={() => {
+            deleteItem(index)
+          }}
+        />
+        <Button
+          isSubmit
+          title='Edit'
+          handlerOnClick={() => {
+            setEditItem(item, index)
+          }}
+        />
       </td>
     </tr>
   )
