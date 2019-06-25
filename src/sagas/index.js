@@ -1,6 +1,6 @@
 import { fork, all } from 'redux-saga/effects'
-import { AddressSagas } from 'sagas/addressSagas'
+import { watcherAddress } from 'sagas/addressSagas'
 
 export default function* root() {
-  yield all([fork(AddressSagas)])
+  yield all([fork(watcherAddress)])
 }

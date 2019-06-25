@@ -6,12 +6,14 @@ import {
 } from 'constants/AddressConstants'
 import { validateAddress } from 'services/addressServices'
 
-function* handlerValidateAddress(address) {
+function* handlerValidateAddress(action) {
   try {
-    const response = yield call(validateAddress, address)
-    yield put({ type: ADDRESS_VALIDATE_FULFILLED, payload: response })
+    const body = { formatted_address: action.payload.stopValue }
+    const res = yield call(validateAddress, body)
+
+    yield put({ type: ADDRESS_VALIDATE_FULFILLED, payload: res.response.data })
   } catch (e) {
-    yield put({ type: ADDRESS_VALIDATE_REJECTED, payload: e })
+    yield put({ type: ADDRESS_VALIDATE_REJECTED, payload: e.response.data })
   }
 }
 

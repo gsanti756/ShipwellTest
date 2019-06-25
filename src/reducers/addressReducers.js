@@ -6,8 +6,9 @@ import {
 
 const INITIAL_STATE = {
   loading: false,
-  error: '',
   address: [],
+  error: '',
+  nonFieldErrors: [],
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -16,10 +17,15 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, loading: true, error: '' }
 
     case ADDRESS_VALIDATE_FULFILLED:
-      return { ...state, loading: false }
+      return { ...state, loading: false, error: '', nonFieldErrors: [] }
 
     case ADDRESS_VALIDATE_REJECTED:
-      return { ...state, loading: false }
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error_description,
+        nonFieldErrors: action.payload.non_field_errors,
+      }
 
     default:
       return state
