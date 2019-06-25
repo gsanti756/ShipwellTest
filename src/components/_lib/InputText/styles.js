@@ -1,34 +1,33 @@
 import { css } from '@emotion/core'
 
 const label = css`
-  font-family: verdana, geneva;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   text-align: left;
-  line-height: 20px;
+  line-height: 1.25rem;
 `
 const inputStyle = css`
-  box-sizing: border-box;
-  padding: 0 15px;
-  min-height: 27px;
-  font-size: 16px;
+  padding: 0 0.9375rem;
+  min-height: 1.6875rem;
+  min-width: 12.8125rem;
+  font-size: 1rem;
   font-weight: normal;
-  line-height: 22px;
+  line-height: 1.375rem;
   color: #33475b;
   background-color: #f5f8fa;
-  border: 1px solid #cbd6e2;
-  border-radius: 4px;
+  border: 0.0625rem solid #cbd6e2;
+  border-radius: 0.25rem;
 `
 
 const errorText = css`
   color: #d02139;
-  padding-left: 5px;
-  font-size: 14px;
+  padding-left: 0.3125rem;
+  font-size: 0.75rem;
   line-height: 1.42857;
 `
 
 const imageError = css`
-  width: 18px;
+  width: 1.125rem;
   fill: green;
 `
 
@@ -37,7 +36,7 @@ const errorContainer = css`
   align-content: center;
   align-items: center;
   width: 100%;
-  min-height: 20px;
+  min-height: 1.25rem;
 `
 
 export { label, inputStyle, errorText, imageError, errorContainer }

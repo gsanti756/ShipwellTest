@@ -32,4 +32,12 @@ const buttonSubmit = css`
     border-color: #08599f;
   }
 `
-export { container, inputValue, buttonSubmit, formContainer }
+
+const generalError = css`
+  p {
+    font-size: 12px;
+    color: #d02139;
+  }
+`
+
+export { container, inputValue, buttonSubmit, formContainer, generalError }

@@ -2,18 +2,31 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import InputText from 'components/_lib/InputText'
 import { validateAddress } from 'actions/addressActions'
+import InputText from 'components/_lib/InputText'
 import spinner from 'static/images/spinner.svg'
-import { container, inputValue, formContainer, buttonSubmit } from './styles'
+import {
+  container,
+  inputValue,
+  formContainer,
+  buttonSubmit,
+  generalError,
+} from './styles'
 
 const FormStop = ({ error, loading, nonFieldErrors, validateAddressAction }) => {
   const [stopName, setStopName] = useState('')
   const [stopValue, setStopValue] = useState('')
   const [errorStopValue, setErrorStopValue] = useState('')
   const [errorStopName, setErrorStopName] = useState('')
+
+  useEffect(() => {
+    if (loading === false) {
+      setStopValue('')
+      setStopName('')
+    }
+  }, [loading])
 
   const validateForm = () => {
     let status = true
@@ -59,9 +72,10 @@ const FormStop = ({ error, loading, nonFieldErrors, validateAddressAction }) => 
         <button onClick={() => buttonOnClick()} type='submit' css={buttonSubmit}>
           Submit
         </button>
+
         {loading && <img src={spinner} alt='loading' />}
       </div>
-      <div>
+      <div css={generalError}>
         <p>{error}</p>
         {nonFieldErrors &&
           Array.isArray(nonFieldErrors) &&

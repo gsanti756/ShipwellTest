@@ -1,23 +1,19 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { useState } from 'react'
 import errorIcon from 'static/images/error.svg'
 import { label, inputStyle, errorText, imageError, errorContainer } from './styles'
 
 const InputText = ({
   name,
   labelValue,
-  initValue,
+  value,
   extraStyle,
   handleChange,
   disabled,
   error,
 }) => {
-  const [selfValue, setSelfValue] = useState(initValue)
-
   const onChangeInput = (e) => {
     const { value } = e.target
-    setSelfValue(value)
     handleChange(value)
   }
   return (
@@ -25,7 +21,7 @@ const InputText = ({
       <p css={label}>{labelValue}</p>
       <input
         type='text'
-        value={selfValue}
+        value={value}
         name={name}
         css={[inputStyle]}
         onChange={onChangeInput}
