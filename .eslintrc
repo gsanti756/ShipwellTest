@@ -8,6 +8,13 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
@@ -18,6 +25,7 @@
   },
   "plugins": ["prettier"],
   "rules": {
+    "react/prop-types": 0,
     "no-debugger": 0,
     "no-console": 0,
     "import/prefer-default-export": "off",
