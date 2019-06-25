@@ -45,8 +45,6 @@ export default (state = INITIAL_STATE, action) => {
       }
 
     case ADDRESS_COMPLETE_SET:
-      console.log(action.payload)
-      debugger
       return {
         ...state,
         address: action.payload.address,
